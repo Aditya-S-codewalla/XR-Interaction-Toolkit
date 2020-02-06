@@ -16,13 +16,19 @@ public class XRGUIDemo : MonoBehaviour
 
     [SerializeField]private float fixedFontSize = 20f;
 
+    private static readonly string testString1 = "__̴ı̴̴̡̡̡ ̡͌l̡̡̡ ̡͌l̡*̡̡ ̴̡ı̴̴̡ ̡̡͡|̲̲̲͡͡͡ ̲▫̲͡ ̲̲̲͡͡π̲̲͡͡ ̲̲͡▫̲̲͡͡ ̲|̡̡̡ ̡ ̴̡ı̴̡̡ ̡͌l̡̡̡̡.___";
+    private static readonly string testString2 = "♫♪.ılılıll|̲̅̅●̲̅̅|̲̅̅=̲̅̅|̲̅̅●̲̅̅|llılılı.♫♪";
+    private bool textFieldValueChanger = false;
+
     private void Awake()
     {
         textField.fontSize = fixedFontSize;
 
         exampleButton.onClick.AddListener(() =>
         {
-            textField.text = "Generic Same Text for testing";
+            textFieldValueChanger = !textFieldValueChanger;
+            textField.text = textFieldValueChanger ? testString1 : testString2;
+            
         });
 
         exampleSlider.onValueChanged.AddListener((float value) => {
